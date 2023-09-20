@@ -8,7 +8,7 @@ const mongoDB = async () => {
     try {
         await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         console.log('Connected to MongoDB');
-        // to fetch data from mongoDB Atlas existing collection food_items
+        // to fetch data from mongoDB Atlas existing collection sample
         let fetched_data = await mongoose.connection.db.collection("sample")
         let caste_data = await mongoose.connection.db.collection("dataCaste")
         let gender_data = await mongoose.connection.db.collection("dataGender")
@@ -20,10 +20,6 @@ const mongoDB = async () => {
         global.data_district = districtData;
         global.data_caste = casteData;
         global.data_gender = genderData;
-        // food_items is a variable now that can be accessed from any file
-        //it is the array of all the food items in the database
-
-
     } catch (error) {
         console.error('Error connecting to MongoDB: ', error);
     }

@@ -20,6 +20,9 @@ app.get("/",(req,res)=>{
 });
 app.use(express.json());
 app.use('/api', require("./Routes/displayData"));
+app.use('/api', require("./Routes/displayCasteData"));
+app.use('/api', require("./Routes/displayGenderData"));
+app.use('/api', require("./Routes/displayDistrictData"));
 
 app.listen(port,()=>{
     console.log(`Server running on port ${port}`);
