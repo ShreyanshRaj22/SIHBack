@@ -1,9 +1,12 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
-const mongoURI = "mongodb+srv://shreyansh:shreyansh@cluster0.epvod1q.mongodb.net/SIH";
+const uri = process.env.MONGO_URI;
+// In your code, before using MONGO_URI
+console.log('MONGO_URI:', process.env.MONGO_URI);
 
 const mongoDB = async () => {
     try {
-        await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         console.log('Connected to MongoDB');
         // to fetch data from mongoDB Atlas existing collection food_items
         let fetched_data = await mongoose.connection.db.collection("sample")
